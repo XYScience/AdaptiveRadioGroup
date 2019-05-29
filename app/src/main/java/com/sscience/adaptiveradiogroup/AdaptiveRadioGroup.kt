@@ -47,7 +47,7 @@ class AdaptiveRadioGroup : RadioGroup {
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         //获取最大宽度
-        val maxWidth = View.MeasureSpec.getSize(widthMeasureSpec) - paddingStart - paddingEnd
+        val maxWidth = MeasureSpec.getSize(widthMeasureSpec)
         //获取Group中的Child数量
         val childCount = childCount
         //设置Group的左边距，下面也会使用x计算每行所占的宽度
@@ -93,9 +93,9 @@ class AdaptiveRadioGroup : RadioGroup {
 
     override fun onLayout(changed: Boolean, l: Int, t: Int, r: Int, b: Int) {
         val childCount = childCount
-        val maxWidth = r - l - paddingStart - paddingEnd
+        val maxWidth = r - l
         var x = 0
-        var y = 0
+        var y: Int
         var row = 0
         val gravityStart = gravityDirection == 0
         val paddingVertical = if (gravityStart) paddingTop else paddingBottom
@@ -116,8 +116,8 @@ class AdaptiveRadioGroup : RadioGroup {
                     x = width + paddingHorizontal
                     y = paddingVertical + row * height + (height + row * marginHorizontal.toInt())
                 }
-                val left = if (gravityStart) x - width else maxWidth - x + paddingStart + paddingEnd
-                val right = if (gravityStart) x else maxWidth - x + width + paddingStart + paddingEnd
+                val left = if (gravityStart) x - width else maxWidth - x
+                val right = if (gravityStart) x else maxWidth - x + width
                 child.layout(left, y - height, right, y)
             }
         }
