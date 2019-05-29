@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <declare-styleable name="AdaptiveRadioGroup">
+        <attr name="margin_vertical" format="dimension"/>
+        <attr name="margin_horizontal" format="dimension"/>
+        <!-- 0: start, 1: end -->
+        <attr name="gravity" format="integer"/>
+    </declare-styleable>
+    
+</resources>
