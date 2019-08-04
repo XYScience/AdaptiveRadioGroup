@@ -71,7 +71,7 @@ class AdaptiveRadioGroup : RadioGroup {
                 //行数*child高度+这次child高度=现在Group的高度,(height + 10)设置child上边距
                 y = paddingVertical + row * height + (height + if (row == 0) 0 else row * marginHorizontal.toInt())
                 //当前行宽X大于Group的最大宽度时，进行换行
-                if (x > maxWidth) {
+                if ((x + if (gravityStart) paddingEnd else paddingStart) > maxWidth) {
                     //当index不为0时，进行row++，防止FirstChild出现大于maxWidth时,提前进行row++
                     if (index != 0)
                         row++
@@ -107,7 +107,7 @@ class AdaptiveRadioGroup : RadioGroup {
                 val height = child.measuredHeight
                 x += width + if (index == 0) paddingHorizontal else marginVertical.toInt()
                 y = paddingVertical + row * height + (height + if (row == 0) 0 else row * marginHorizontal.toInt())
-                if (x > maxWidth) {
+                if ((x + if (gravityStart) paddingEnd else paddingStart) > maxWidth) {
                     if (index != 0)
                         row++
                     if (width >= maxWidth) {

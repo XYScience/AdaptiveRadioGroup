@@ -55,15 +55,21 @@
         />
     </LinearLayout>
 
-    <com.sscience.adaptiveradiogroup.AdaptiveRadioGroup
-            android:id="@+id/radio_group"
+    <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#2f4688F1"
-            android:padding="16dp"
-            app:gravity="1"
-            app:margin_horizontal="10dp"
-            app:margin_vertical="6dp"
-    />
+            android:layout_height="match_parent">
+
+        <com.sscience.adaptiveradiogroup.AdaptiveRadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#2f4688F1"
+                android:padding="16dp"
+                app:gravity="1"
+                app:margin_horizontal="10dp"
+                app:margin_vertical="6dp"
+        />
+
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>
